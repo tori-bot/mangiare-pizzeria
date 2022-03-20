@@ -1,3 +1,29 @@
+.nav{
+   margin-top: -10vh;
+   
+}
+.landing h1,p{
+    text-align: center;
+    justify-content: center;
+    margin-top: 20vh;
+    color: white;
+}
+.landing button{
+    color: white;
+    width: 15vw;
+    background-color: transparent;
+    margin-left: 33vw;
+    border-radius: 10px;
+    font-size: larger;
+    font-weight: bold;
+
+}
+
+.jumbotron{
+    height: 100vh;
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+}
 .card-deck{
     margin: 5vw auto;
 }
@@ -34,4 +60,14 @@ button{
 footer{
     text-align: center;
     justify-content: center;
+}
+ul{
+    list-style-type: none;
+    padding-top: 2vh;
+}
+li{
+    padding-bottom: 5vh;
+}
+#contact{
+    margin-top: 7vh;
 }
