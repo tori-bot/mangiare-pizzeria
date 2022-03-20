@@ -24,7 +24,12 @@
     height: 47vh;
     text-align: center;
     justify-content: center;
+    padding: auto;
     
+}
+button{
+    padding: 15px 5px;
+    border-radius: 7px;
 }
 footer{
     text-align: center;
