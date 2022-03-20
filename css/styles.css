@@ -1,0 +1,23 @@
+.card{
+    perspective: 1000px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.card:hover {
+    transform: rotateY(180deg);
+  }
+  .front, .card-body {
+    position: absolute;
+    /* width: 100%;
+    height: 100%; */
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+  }
+.card-body {
+    background-color: orange;
+    color: white;
+    transform: rotateY(180deg);
+    height: relative;
+    text-align: center;
+    
+}
