@@ -1,3 +1,6 @@
+.card-deck{
+    margin: 5vw auto;
+}
 .card{
     perspective: 1000px;
     transition: transform 0.8s;
@@ -17,7 +20,9 @@
     background-color: orange;
     color: white;
     transform: rotateY(180deg);
-    height: relative;
+    position: absolute;
+    height: 47vh;
     text-align: center;
+    justify-content: center;
     
 }
