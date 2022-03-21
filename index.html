@@ -83,7 +83,8 @@
             <p class="card-text">
               Classic cheese pizza that will leave you yearning for more.
             </p>
-            <button id="cheese">Order Now</button>
+            <a href="#order"><button id="orderbtn" value="cheese" >Order Now</button></a>
+            
           </div>
         </div>
 
@@ -95,7 +96,8 @@
               For all the meat-lovers, we got you covered. All types of meat are
               available.
             </p>
-            <button>Order Now</button>
+            <a href="#order"><button id="orderbtn" value="meat" >Order Now</button></a>
+            
           </div>
         </div>
 
@@ -109,7 +111,8 @@
               This beloved pizza is known worldwide for its yummy goodness. Try
               it today.
             </p>
-            <button>Order Now</button>
+            <a href="#order"><button id="orderbtn" value="pepperoni" >Order Now</button></a>
+            
           </div>
         </div>
       </div>
@@ -123,7 +126,8 @@
               Who said you can't be on a diet and eat delicious food? This
               veggie pizza is beyond epic.
             </p>
-            <button>Order Now</button>
+            <a href="#order"><button id="orderbtn" value="veggie" >Order Now</button></a>
+            
           </div>
         </div>
 
@@ -135,7 +139,8 @@
               Chicken might just be the most delicious food ever. On a pizza, it
               is to die for.
             </p>
-            <button>Order Now</button>
+            <a href="#order"><button id="orderbtn" value="chicken" >Order Now</button></a>
+            
           </div>
         </div>
 
@@ -149,7 +154,8 @@
               Made with basil, fresh mozzarella, and tomatoes. This pizza is an
               Italian delicacy.
             </p>
-            <button>Order Now</button>
+            <a href="#order"><button id="orderbtn" value="mergherita" >Order Now</button></a>
+            
           </div>
         </div>
       </div>
@@ -163,7 +169,8 @@
               Get a little funky and get yourself an experience of a lifetime.
               Pineapples on a pizza? Yes please!
             </p>
-            <button>Order Now</button>
+            <a href="#order"><button id="orderbtn" value="hawaii" >Order Now</button></a>
+            
           </div>
         </div>
 
@@ -179,7 +186,8 @@
               Who says your pizza has to be strictly tomato-sauce based? Branch
               out with some buffalo sauce; spicy, salty, buttery goodness.
             </p>
-            <button>Order Now</button>
+            <a href="#order"><button id="orderbtn" value="buffalo" >Order Now</button></a>
+            
           </div>
         </div>
 
@@ -192,17 +200,22 @@
             <p class="card-text">
               When you can’t decide which toppings to get, it’s time for the
               supreme pizza.It has a litany of toppings from sausage to
-              vegetables to pepperoni, a combination of the flavors that really
+              vegetables to pepperoni,the flavor combo
               makes it sing.
             </p>
-            <button>Order Now</button>
+            <a href="#order"><button id="orderbtn" value="supreme">Order Now</button></a>
+            
           </div>
         </div>
       </div>
     </section>
 
-    <section class="sidebar">
-      <form>
+    <section class="form">
+
+      <div id="order" class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h2 class="display-4">Make Your Order</h2>
+          <form>
         <div class="form-row align-items-center">
           <div class="col-auto my-1">
             <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
@@ -210,9 +223,9 @@
             >
             <select class="custom-select mr-sm-2" id="size">
               <option selected>Size</option>
-              <option value="1">Small</option>
-              <option value="2">Medium</option>
-              <option value="3">Large</option>
+              <option value="1">Small sh 600</option>
+              <option value="2">Medium sh 1000</option>
+              <option value="3">Large sh 1300</option>
             </select>
           </div>
           <div class="col-auto my-1">
@@ -221,13 +234,13 @@
             >
             <select class="custom-select mr-sm-2" id="toppings">
               <option selected>Toppings</option>
-              <option value="1">Sausage</option>
-              <option value="2">Mushrooms</option>
-              <option value="3">Green pepper</option>
-              <option value="4">Extra cheese</option>
-              <option value="5">Onions</option>
-              <option value="6">Black olives</option>
-              <option value="7">Bacon</option>
+              <option value="1">Sausage sh 150</option>
+              <option value="2">Mushrooms sh 150</option>
+              <option value="3">Green pepper sh 100</option>
+              <option value="4">Extra cheese sh 200</option>
+              <option value="5">Onions sh 100</option>
+              <option value="6">Black olives sh 150</option>
+              <option value="7">Bacon sh 200</option>
             </select>
           </div>
 
@@ -237,9 +250,9 @@
             >
             <select class="custom-select mr-sm-2" id="crust">
               <option selected>Crust</option>
-              <option value="1">Gluten free</option>
-              <option value="2">Thin crust</option>
-              <option value="3">Thick crust</option>
+              <option value="1">Gluten free sh 300</option>
+              <option value="2">Thin crust sh150</option>
+              <option value="3">Thick crust sh200</option>
             </select>
           </div>
 
@@ -249,8 +262,8 @@
             >
             <select class="custom-select mr-sm-2" id="deliver">
               <option selected>delivered?</option>
-              <option value="1">Yes</option>
-              <option value="3">No</option>
+              <option value="1">Yes for sh200</option>
+              <option value="2">No for sh 0</option>
             </select>
           </div>
 
@@ -275,6 +288,10 @@
           </div>
         </div>
       </form>
+        </div>
+      </div>
+
+      
     </section>
     <section id="contact">
       <div class="row">
