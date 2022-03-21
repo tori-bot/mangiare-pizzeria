@@ -49,7 +49,7 @@
               >
               <a class="nav-link" href="#about">About Us</a>
               <a class="nav-link" href="#menu">Menu</a>
-              <a class="nav-link" href="#checkout">Checkout</a>
+              <a class="nav-link" href="#order">Order</a>
               <a class="nav-link" href="#contact">Contact Us</a>
             </div>
           </div>
@@ -216,8 +216,24 @@
         <div class="container">
           <h2 class="display-4">Make Your Order</h2>
           <form>
-        <div class="form-row align-items-center">
-          <div class="col-auto my-1">
+        <div class=" ">
+          <div class="column">
+            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
+              >type</label
+            >
+            <select class="custom-select mr-sm-2" id="size">
+              <option selected>type</option>
+              <option value="1">cheese pizza</option>
+              <option value="2">meat pizza</option>
+              <option value="3">veggie pizza</option>
+              <option value="4">BBQ chicken pizza</option>
+              <option value="5">mergherita pizza</option>
+              <option value="6">hawaiian pizza</option>
+              <option value="7">buffalo-chicken pizza</option>
+              <option value="8">supreme pizza</option>
+            </select>
+          </div>
+          <div class="column">
             <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
               >size</label
             >
@@ -228,7 +244,7 @@
               <option value="3">Large sh 1300</option>
             </select>
           </div>
-          <div class="col-auto my-1">
+          <div class="column">
             <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
               >toppings</label
             >
@@ -244,7 +260,7 @@
             </select>
           </div>
 
-          <div class="col-auto my-1">
+          <div class="column">
             <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
               >crust</label
             >
@@ -256,7 +272,7 @@
             </select>
           </div>
 
-          <div class="col-auto my-1">
+          <div class="column">
             <label class="mr-sm-2 sr-only" for="deliver"
               >delivered?</label
             >
@@ -267,10 +283,12 @@
             </select>
           </div>
 
-          <div class="col-auto my-1">
+          <div class="column">
             <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
               >how many pizzas</label
             >
+
+
 
             <input
               type="number"
@@ -283,8 +301,8 @@
             />
           </div>
 
-          <div class="col-auto my-1">
-            <button type="submit" value="submit" class="btn btn-primary">Submit Order</button>
+          <div class="button">
+            <button type="submit" value="submit" class="submitbtn">Submit Order</button>
           </div>
         </div>
       </form>
