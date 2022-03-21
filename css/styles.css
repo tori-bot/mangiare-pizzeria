@@ -88,11 +88,14 @@
     color: white;
     transform: rotateY(180deg);
     position: absolute;
-    height: 49vh;
+    height: 43.5vh;
     text-align: center;
     justify-content: center;
     padding: auto;
     
+}
+.column{
+    padding-bottom: 2vh;
 }
 button{
     padding: 15px 5px;
@@ -111,4 +114,28 @@ li{
 }
 #contact{
     margin-top: 7vh;
+}
+#order{
+    background-image: url(https://media.istockphoto.com/photos/marinara-pizza-picture-id184969517?b=1&k=20&m=184969517&s=170667a&w=0&h=kp-mjzeXZbdN5WPFsFje4BxKKqt6x5f5AeMRCmquvM4=);
+    height: 100vh;
+}
+#order form{
+    justify-content: center;
+    padding: 1vh 5vw;
+}
+#order h2{
+    text-align: center;
+    margin-top: -3vh;
+}
+#submitbtn{
+    background-color: orange;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+#checkboxes{
+    /* background-color: white; */
+    color: black;
+    margin-bottom: 2vh;
+    justify-content: center;
+    margin-left: 20vw;
 }

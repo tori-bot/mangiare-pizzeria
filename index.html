@@ -244,22 +244,53 @@
               <option value="large">Large sh 1300</option>
             </select>
           </div>
-          <div class="column">
-            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
-              >toppings</label
-            >
-            <select class="custom-select mr-sm-2" id="toppings">
-              <option selected>Toppings</option>
-              <option value="sausage">Sausage sh 150</option>
-              <option value="mushrooms">Mushrooms sh 150</option>
-              <option value="green pepper">Green pepper sh 100</option>
-              <option value="extra cheese">Extra cheese sh 200</option>
-              <option value="onions">Onions sh 100</option>
-              <option value="black olives">Black olives sh 150</option>
-              <option value="bacon">Bacon sh 200</option>
-            </select>
-          </div>
+          <div id="checkboxes" class="column">
 
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="sausage" id="sausage">
+              <label class="form-check-label" for="defaultCheck1">
+                Sausage sh 150
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="mushrooms" id="mushrooms">
+              <label class="form-check-label" for="defaultCheck1">
+                Mushrooms sh 150
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="green pepper" id="green pepper">
+              <label class="form-check-label" for="defaultCheck1">
+                Green pepper sh 100
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="extra cheese" id="extra cheese">
+              <label class="form-check-label" for="defaultCheck1">
+                Extra cheese sh 200
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="onions" id="onions">
+              <label class="form-check-label" for="defaultCheck1">
+                Onions sh 100
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="bacon" id="bacon">
+              <label class="form-check-label" for="defaultCheck1">
+                Bacon sh 200
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1">
+                Black olives sh 150
+              </label>
+            </div>
+            </div>
+
+           
           <div class="column">
             <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
               >crust</label
@@ -310,6 +341,15 @@
       </div>
 
       
+    </section>
+
+    <section class="checkout">
+      <ul id="checkout">
+        <li></li>
+
+      </ul>
+      
+
     </section>
     <section id="contact">
       <div class="row">
