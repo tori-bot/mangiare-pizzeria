@@ -121,5 +121,6 @@ class Topping {
       this.price = price;
     }
   }
-  
+  //main app
+  const myCart = new Cart();
   
