@@ -1,149 +1,125 @@
-
-
-//constructor
-function Pizza(size, crust, toppings, quantity,delivery){
-    this.size=size;
-    this.crust=crust;
-    this.toppings=toppings;
-    this.quantity=quantity;
-    this.delivery = delivery;
-}
-
-            
-//prototypes
-Pizza.prototype.sizePrice = function () {
-    if (this.size === 'small')
-    {
-        return 600;  
+//cart model
+class Cart {
+    product;
+    total = 0;
+    quantity = 0;
+  
+    updateQuantity(quantity) {
+      this.quantity = quantity;
+      this.updateTotal();
     }
-    else if (this.size === 'medium')
-    {
-        return 1000;
+  
+    updateTotal() {
+      this.total = this.product.unitPrice * this.quantity;
+  
+      let cartDiv = document.querySelector("#cart");
+      cartDiv.innerHTML = this.render();
     }
-    else
-    {
-        return 1300;
-    }
+  
+    render() {
+      try {
+        return `
+      <div class="cart-container">
+        <div class="cart-header">
+        <h2>Your Cart</h2>
+        <hr>
+        <h4> Total: ${this.total}</h3>
+        <h4> Quantity: ${this.quantity}</h4>
+        <hr>
+        <h3>${this.product.name}</h3>
+        <h4>${this.product.size.name}</h4>
+        <h4>${this.product.crust.name}</h4>
+        <h4>Your toppings are,${this.product.toppings
+          .map((topping) => topping.name)
+          .join(", ")}</h4>
+        </div>
     
-}
-
-Pizza.prototype.crustPrice = function () {
-    if (this.crust === 'gluten free')
-    {
-        return 300;
+      </div>
+      `;
+      } catch (error) {
+        return `Please select a product`;
+      }
     }
-    else if (this.crust === 'thin')
-    {
-        return 150;
+  }
+
+  //product model
+  class Product {
+    name = "";
+    size = "";
+    toppings = [];
+    crust = "";
+    unitPrice = 0;
+  
+    addTopping(topping) {
+      this.toppings.push(topping);
+      this.getPrice();
     }
-    else if(this.crust==='thick')
-    {
-        return 200;
+  
+    removeTopping(topping) {
+      this.toppings = this.toppings.filter((item) => item.name !== topping);
+      this.getPrice();
     }
-    else
-    {
-        return 0;
+  
+    selectCrust(crust) {
+      this.crust = crust;
+      this.getPrice();
     }
-}
-
-Pizza.prototype.toppingPrice = function () {
-    var sum = 0;
-    this.toppings.forEach(item => {
-        sum += parseFloat(item.name)
-    });
-    return sum;
-};
-
-
-
-
-
-
-Pizza.prototype.toppingNameList = function () {
-    var toppingsList = this.toppings;
-    var newList = [];
-    toppingsList.forEach(item => {
-        newList.push(item.value)
-    })
-    return newList.join(', ')
-}
-
-Pizza.prototype.deliveryPrice = function () {
-    if (this.deliver === 'home')
-    {
-        return 200;
+  
+    selectSize(size) {
+      this.size = size;
+      this.getPrice();
     }
-    else
-    {
-        return 0;
-    }  
-}
-
-Pizza.prototype.totalPrice = function () {
-    let total = (this.sizePrice() + this.crustPrice() + this.toppingPrice()) * this.quantity;
-    return total;
-    
-};
- 
-//user interface
-$(document).ready(function () {
-    $('#order').submit((event) => {
-        event.preventDefault();
- 
-
-
-    //user input
-    var inputType = $('#type').val();
-    var inputSize = $('#size').val();
-    var inputCrust = $('#crust').val();
-    var inputToppings = $('#checkboxes').serializeArray();
-    var quantityOrdered = parseInt($('#quantity').val());
-    var delivery = $('#deliver').val();
-
-    if (delivery === 'home')
-    {
-        $('#address').show();
+  
+    getPrice() {
+      let toppingPrice = 0;
+  
+      this.toppings.forEach((topping) => {
+        toppingPrice += topping.price;
+      });
+  
+      let crustPrice = this.crust.price;
+      let sizePrice = this.size.price;
+  
+      if (isNaN(crustPrice)) {
+        crustPrice = 0;
+      }
+  
+      if (isNaN(sizePrice)) {
+        sizePrice = 0;
+      }
+  
+      this.unitPrice = crustPrice + toppingPrice + sizePrice;
+  
+      return this.unitPrice;
     }
-    else
-    {
-        $('#address').hide();
+  }
+
+  //size model
+  class Size {
+    name = "";
+    price = 0;
+    constructor(name, price) {
+      this.name = name;
+      this.price = price;
     }
-    
-    if (quantityOrdered === 0)
-    {
-        alert('error. please enter number of pizzas ordered');
-        return;
+  }
+  //crust model
+  class Crust {
+    name = "";
+    price = 0;
+    constructor(name, price) {
+      this.name = name;
+      this.price = price;
     }
-
-    
-
-    var newOrder = new Pizza(inputType, inputSize, inputCrust, inputToppings, quantityOrdered, delivery);
-    
-    var newTotal = newOrder.totalPrice();
-
-        var toppingsListed = newOrder.toppingNameList();
-        
-        
-         $("ul#myOrder").append("<li><span class='myorder'>" +newOrder.totalPrice() + "</span></li>");
-
-         
-        
-         $("#type").val("");
-         $("#size").val("");
-         $("#crust").val("");
-         $("#toppings").val("");
-         $("#quantity").val("");
-         $("#deliver").val("");
-
-
-
-
-    $('.grandTotal').text(newTotal);
-
-    var deliveryAmount = newOrder.deliveryPrice();
-    var absoluteTotal = deliveryAmount + newTotal;
-
-    alert("your order of " + quantity + size + " sized " + type + "pizza/s will be completed in the next 30 minutes. Total proce payable is " + absoluteTotal + ". Enjoy your meal!");
-
-   });
-});
+  }
+//toppings model
+class Topping {
+    name = "";
+    price = 0;
+    constructor(name, price) {
+      this.name = name;
+      this.price = price;
+    }
+  }
+  
+  
