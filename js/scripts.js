@@ -122,5 +122,75 @@ class Topping {
     }
   }
   //main app
-  const myCart = new Cart();
+const myCart = new Cart();
+  //event handler
+  const onTypeSelect = (event) => {
+    updateName(event.target.value);
+  };
+  
+  const onSizeSelect = (event) => {
+    let size = event.target.value.split(":");
+    updateSize(size[0], size[1]);
+  };
+  
+  const onToppingSelect = (event) => {
+    if (event.srcElement.checked) {
+      addTopping(event.target.name, event.target.value);
+    } else {
+      removeTopping(event.target.name);
+    }
+  };
+  
+  const onCrustSelect = (event) => {
+    let crust = event.target.value.split(":");
+    updateCrust(crust[0], crust[1]);
+  };
+  
+  const onQuantity = (event) => {
+    myCart.updateQuantity(parseFloat(event.target.value));
+  };
+  
+  const onSubmit = (event) => {
+    event.preventDefault();
+    onSubmitOrder();
+  };
+
+  //controller
+  const pizza = new Product();
+myCart.product = pizza;
+
+const updateName = (name) => {
+  pizza.name = name;
+};
+
+const updateSize = (sizeName, sizePrice) => {
+  const size = new Size(sizeName, parseFloat(sizePrice));
+  pizza.selectSize(size);
+  myCart.updateTotal();
+};
+
+const addTopping = (toppingName, toppingPrice) => {
+  const topping = new Topping(toppingName, parseFloat(toppingPrice));
+  pizza.addTopping(topping);
+
+  myCart.updateTotal();
+};
+
+const removeTopping = (toppingName) => {
+  pizza.removeTopping(toppingName);
+
+  myCart.updateTotal();
+};
+
+const updateCrust = (crustName, crustPrice) => {
+  const crust = new Crust(crustName, parseFloat(crustPrice));
+  pizza.selectCrust(crust);
+
+  myCart.updateTotal();
+};
+
+const onSubmitOrder = () => {
+  console.log(myCart);
+};
+
   
