@@ -19,11 +19,7 @@
       crossorigin="anonymous"
     />
 
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h3ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
   </head>
   <body id="everything">
@@ -221,146 +217,182 @@
             <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
               >type</label
             >
-            <select class="custom-select mr-sm-2" id="type">
-              <option selected>type</option>
-              <option value="cheese">cheese pizza</option>
-              <option value="meat">meat pizza</option>
-              <option value="veggie">veggie pizza</option>
-              <option value="bbq chicken">BBQ chicken pizza</option>
-              <option value="mergherita pizza">mergherita pizza</option>
-              <option value="hawaiian">hawaiian pizza</option>
-              <option value="buffalo-chicken ">buffalo-chicken pizza</option>
-              <option value="supreme">supreme pizza</option>
-            </select>
-          </div>
-          <div class="column">
-            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
-              >size</label
-            >
-            <select class="custom-select mr-sm-2" id="size">
-              <option selected>Size</option>
-              <option value="small">Small sh 600</option>
-              <option value="medium">Medium sh 1000</option>
-              <option value="large">Large sh 1300</option>
-            </select>
-          </div>
-          <div id="checkboxes" class="column">
+            <form onsubmit="onSubmit(event)">
+              <select
+                class="custom-select mr-sm-2"
+                id="type"
+                onchange="onTypeSelect(event)"
+              >
+                <option selected>type</option>
+                <option value="cheese">cheese pizza</option>
+                <option value="meat">meat pizza</option>
+                <option value="veggie">veggie pizza</option>
+                <option value="bbq chicken">BBQ chicken pizza</option>
+                <option value="mergherita pizza">mergherita pizza</option>
+                <option value="hawaiian">hawaiian pizza</option>
+                <option value="buffalo-chicken ">buffalo-chicken pizza</option>
+                <option value="supreme">supreme pizza</option>
+              </select>
+              <div class="column">
+                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">size</label>
+                <select onchange="onSizeSelect(event)" class="custom-select mr-sm-2" id="size">
+                  <option selected">Size</option>
+                  <option value="small:600">Small sh 600</option>
+                  <option value="medium:1000">Medium sh 1000</option>
+                  <option value="large:1300">Large sh 1300</option>
+                </select>
+              </div>
+              
+        
+        
+        
+        
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="sausage"
+                  id="sausage"
+                  value="150"
+                  onchange="onToppingSelect(event)"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Sausage sh 150
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="mushrooms"
+                  id="mushrooms"
+                  
+                  value="150"
+                  
+                  onchange="onToppingSelect(event)"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Mushrooms sh 150
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="green pepper"
+                  id="green pepper"
+                  
+                  value="100"
+                  
+                  onchange="onToppingSelect(event)"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Green pepper sh 100
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="extra cheese"
+                  id="extra cheese"
+                  
+                  value="200"
+                  
+                  onchange="onToppingSelect(event)"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Extra cheese sh 200
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="onions"
+                  id="onions"
+                  
+                  value="100"
+                  onchange="onToppingSelect(event)"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Onions sh 100
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="bacon"
+                  id="bacon"
+                  
+                  value="200"
+                  
+                  onchange="onToppingSelect(event)"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Bacon sh 200
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  name="black olivs"
+                  id="black olives"
+                  
+                  value="150"
+                  
+                  onchange="onToppingSelect(event)"
+                />
+                <label class="form-check-label" for="defaultCheck1">
+                  Black olives sh 150
+                </label>
+              </div>
+        
+        
+        
+        
+        
+              <div class="column">
+                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
+                  >crust</label
+                >
+                <select onchange="onCrustSelect(event)" class="custom-select mr-sm-2" id="crust">
+                  <option selected>Crust</option>
+                  <option value="gluten free:300">Gluten free sh 300</option>
+                  <option value="thin crust:150">Thin crust sh150</option>
+                  <option value="thick crust:200">Thick crust sh200</option>
+                </select>
+              </div>
+              <div class="column">
+                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
+                  >how many pizzas</label
+                >
+        
+                <input
+                  type="number"
+                  id="quantity"
+                  value=""
+                  placeholder="How Many?"
+                  min="1"
+                  max="100000"
+                  required
+                  onchange="onQuantity(event)"
+                />
+              </div>
+        
+              <div class="button">
+                <button type="submit" value="submit" id="submitbtn">
+                  Submit Order
+                </button>
+              </div>
+            </form>
+            <hr>
+            <div id="cart"></div>
 
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="sausage" id="sausage">
-              <label class="form-check-label" for="defaultCheck1">
-                Sausage sh 150
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="mushrooms" id="mushrooms">
-              <label class="form-check-label" for="defaultCheck1">
-                Mushrooms sh 150
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="green pepper" id="green pepper">
-              <label class="form-check-label" for="defaultCheck1">
-                Green pepper sh 100
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="extra cheese" id="extra cheese">
-              <label class="form-check-label" for="defaultCheck1">
-                Extra cheese sh 200
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="onions" id="onions">
-              <label class="form-check-label" for="defaultCheck1">
-                Onions sh 100
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="bacon" id="bacon">
-              <label class="form-check-label" for="defaultCheck1">
-                Bacon sh 200
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="black olivs" id="black olives">
-              <label class="form-check-label" for="defaultCheck1">
-                Black olives sh 150
-              </label>
-            </div>
-            </div>
 
-           
-          <div class="column">
-            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
-              >crust</label
-            >
-            <select class="custom-select mr-sm-2" id="crust">
-              <option selected>Crust</option>
-              <option value="gluten free">Gluten free sh 300</option>
-              <option value="thin">Thin crust sh150</option>
-              <option value="3">Thick crust sh200</option>
-            </select>
-          </div>
-
-          <div class="column">
-            <label class="mr-sm-2 sr-only" for="deliver"
-              >delivered?</label
-            >
-            <select class="custom-select mr-sm-2" id="deliver">
-              <option selected>delivered?</option>
-              <option value="home">Yes for sh200</option>
-              <option value="in person">No for sh 0</option>
-            </select>
-          </div>
-
-          <div class="column">
-            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
-              >how many pizzas</label
-            >
-
-
-
-            <input
-              type="number"
-              id="quantity"
-              value=""
-              placeholder="How Many?"
-              min="1"
-              max="100000"
-              required
-            />
-          </div>
-
-          <div class="button">
-            <button type="submit" value="submit" id="submitbtn">Submit Order</button>
-          </div>
-        </div>
-      </form>
-        </div>
-      </div>
-
-      
-    </section>
-
-    <section class="checkout">
-      <h2>order:</h2>
-      <ul id="myOrder">
-
-      </ul>
-      <div id="show-order">
-        <h2></h2>
-    
-        <p>type: <span id="type"></span></p>
-        <p>size: <span id="size"></span></p>
-        <p>crust: <span id="crust"></span></p>
-        <p>toppings: <span id="toppings"></span></p>
-        <p>delivered: <span id="deliver"></span></p>
-        <p>total price: <span id="price"></span></p>
-
-      </div>
-      
-
+         
     </section>
     <section id="contact">
       <div class="row">
@@ -404,7 +436,6 @@
     <footer>
       <p>Victoria Makena <i class="fa-solid fa-copyright"></i> 2022</p>
     </footer>
-    <section></section>
-    <section></section>
+    
   </body>
 </html>
