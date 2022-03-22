@@ -139,3 +139,12 @@ li{
     justify-content: center;
     margin-left: 20vw;
 }
+.info{
+    margin-top: 10vh;
+}
+.info h3{
+    text-align: center;
+}
+#show-order {
+    display: none;
+  }

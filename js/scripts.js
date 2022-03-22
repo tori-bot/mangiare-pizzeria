@@ -1,5 +1,4 @@
-var price, crustPrice, toppingPrice, deliveryPrice
-let total=0
+
 
 //constructor
 function Pizza(size, crust, toppings, quantity,delivery){
@@ -10,15 +9,7 @@ function Pizza(size, crust, toppings, quantity,delivery){
     this.delivery = delivery;
 }
 
-$(document).ready(function () {
-        $("#submitbtn").click(function (event) {
-            var ptype = $("#type option:selected").value;
-            var psize = $("#size option:selected").value;
-            var ptoppings = $("#toppings option:selected").value;
-            var pcrust = $("#crust option:selected").value;
-            var deliver = $("#deliver option:slected").value;
-        });
-    });
+            
 //prototypes
 Pizza.prototype.sizePrice = function () {
     if (this.size === 'small')
@@ -58,16 +49,15 @@ Pizza.prototype.crustPrice = function () {
 Pizza.prototype.toppingPrice = function () {
     var sum = 0;
     this.toppings.forEach(item => {
-        sum += parseFloat(item.value)
+        sum += parseFloat(item.name)
     });
     return sum;
-}
+};
 
 
-Pizza.prototype.totalPrice = function () {
-    var total = (this.sizePrice() + this.crustPrice() + this.toppingPrice()) * this.quantity;
-    return total;
-}
+
+
+
 
 Pizza.prototype.toppingNameList = function () {
     var toppingsList = this.toppings;
@@ -87,47 +77,73 @@ Pizza.prototype.deliveryPrice = function () {
     {
         return 0;
     }  
- }  
+}
 
-$('#order').submit((e) => {
-    e.preventDefault();
+Pizza.prototype.totalPrice = function () {
+    let total = (this.sizePrice() + this.crustPrice() + this.toppingPrice()) * this.quantity;
+    return total;
+    
+};
+ 
+//user interface
+$(document).ready(function () {
+    $('#order').submit((event) => {
+        event.preventDefault();
+ 
 
-//user input
+
+    //user input
     var inputType = $('#type').val();
     var inputSize = $('#size').val();
-    var inpuCrust = $('#crust').val();
+    var inputCrust = $('#crust').val();
     var inputToppings = $('#checkboxes').serializeArray();
     var quantityOrdered = parseInt($('#quantity').val());
     var delivery = $('#deliver').val();
+
+    if (delivery === 'home')
+    {
+        $('#address').show();
+    }
+    else
+    {
+        $('#address').hide();
+    }
     
     if (quantityOrdered === 0)
     {
         alert('error. please enter number of pizzas ordered');
         return;
     }
+
     
 
     var newOrder = new Pizza(inputType, inputSize, inputCrust, inputToppings, quantityOrdered, delivery);
     
     var newTotal = newOrder.totalPrice();
 
-    var toppingsListed = newOrder.toppingNameList();
+        var toppingsListed = newOrder.toppingNameList();
+        
+        
+         $("ul#myOrder").append("<li><span class='myorder'>" +newOrder.totalPrice() + "</span></li>");
 
-    $("ul#checkout").append("<li><span class='type'>" + newOrder.inputType() + "</span></li>");
-    $("ul#checkout").append("<li><span class='size'>" + newOrder.inputSize() + "</span></li>");
-    $("ul#checkout").append("<li><span class='crust'>" + newOrder.inputCrust() + "</span></li>");
-    $("ul#checkout").append("<li><span class='toppings'>" + newOrder.inputToppings() + "</span></li>");
-    $("ul#checkout").append("<li><span class='quantity'>" + newOrder.quantityOrdered() + "</span></li>");
-    $("ul#checkout").append("<li><span class='deliver'>" + newOrder.delivery() + "</span></li>");
+         
+        
+         $("#type").val("");
+         $("#size").val("");
+         $("#crust").val("");
+         $("#toppings").val("");
+         $("#quantity").val("");
+         $("#deliver").val("");
 
 
-alert("your order of "+quantity + size +" sized "+type+ "pizza/s will be completed in the next 30 minutes. Total proce payable is "+absoluteTotal+". Enjoy your meal!")
-    
- 
-    
-  
-    var inputSize = parseInt(document.getElementById('size').value);
-    var inpuCrust = parseInt(document.getElementById('crust').value);
-    var inputToppings = parseInt(document.getElementById('toppings').value);
-    var inputDeliver = parseInt(document.getElementById('deliver').value);
-    var howMany = parseInt(document.getElementById('quantity').value);
+
+
+    $('.grandTotal').text(newTotal);
+
+    var deliveryAmount = newOrder.deliveryPrice();
+    var absoluteTotal = deliveryAmount + newTotal;
+
+    alert("your order of " + quantity + size + " sized " + type + "pizza/s will be completed in the next 30 minutes. Total proce payable is " + absoluteTotal + ". Enjoy your meal!");
+
+   });
+});
