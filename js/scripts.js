@@ -1,3 +1,7 @@
+//same-site cookies secured
+document.cookie = "tagname = test";
+
+
 //cart model
 class Cart {
     product;
@@ -21,7 +25,7 @@ class Cart {
         return `
       <div class="cart-container">
         <div class="cart-header">
-        <h2>Your Cart</h2>
+        <h2>Your Cart </h2>
         <hr>
         <h4> Total: ${this.total}</h3>
         <h4> Quantity: ${this.quantity}</h4>
@@ -45,8 +49,7 @@ class Cart {
   
 class Delivery{
   updateGrandTotal() {
-    if()
-    this.grandTotal = this.total + 200;
+    this.grandTotal = this.totalTotal;
   }
   deliver(){
   let deliveryDiv = document.querySelector("#delivery");
@@ -55,19 +58,22 @@ class Delivery{
   render() {
     try
     {
-      return `<form>
+      return `
+      <div class="delivery-container>
+      <form>
       <input type="text" id="name" placeholder="name"><br>
       <input type="text" id="location" placeholder="location/address"><br>
       <input type="email" id="email" placeholder="email"><br>
       <input type="number" id="m-number" placeholder="mobile number"><br>
       <p>Delivery price is sh 200<p>
-      <input onchange"onDeliverySelect(event)" type="checkbox" id="yes" placeholder="yes"><br>
-      <input onchange"onDeliverySelect(event)" type="checkbox" id="no" placeholder="no"><br>
+      <input onchange"onDeliverySelect(event)" type="checkbox" id="yes" placeholder="Deliver"><br>
+      <h3>grand total: ${this.grandTotal}<h3>
       <button class="checkout">Finish<button>
-      </form>`;
+      </form>
+      </div>`;
     } finally
     {
-      alert('Please pay ${this.grandTotal} Your order will be ready in 30 minutes. Bon appetit!')
+      alert('Please pay the Grand Total Your order will be ready in 30 minutes. Bon appetit!')
     }
   }
 }
@@ -188,13 +194,18 @@ const deliveryForm = new Delivery();
 
 const onCheckout = (event) => {
   event.preventDefault();
+  console.log('checkout')
   onCheckoutCart();
   }
 
 const onDeliverySelect = (event) => {
   if (event.srcElement.checked)
   {
-    let grandTotal=total
+     this.totalTotal = this.total + 200;
+  }
+  else
+  {
+     this.totalTotal = this.total;
   }
   
 }
