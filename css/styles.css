@@ -145,3 +145,10 @@ li{
 .info h3{
     text-align: center;
 }
+.checkout{
+   padding: 5px 10px;
+   border-radius: 10px;
+   background-color: orange;
+   color: black;
+   margin-top: 12vh;
+}
