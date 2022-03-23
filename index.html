@@ -207,16 +207,17 @@
     </section>
 
     <section class="form">
-
-      <div id="order" class="jumbotron jumbotron-fluid">
+   <div id="order" class="jumbotron jumbotron-fluid">
         <div class="container">
           <h2 class="display-4">Make Your Order</h2>
-          <form>
+      <div class="row">
+        <div class="col-md-6">
+          <!-- <form>
         <div class=" ">
           <div class="column">
             <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"
               >type</label
-            >
+            > -->
             <form onsubmit="onSubmit(event)">
               <select
                 class="custom-select mr-sm-2"
@@ -388,12 +389,19 @@
                 </button>
               </div>
             </form>
-            <hr>
-            <div id="cart"></div>
-
-
-         
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5"><div id="cart"></div></div>
+      </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+     
     </section>
+    <div id="delivery"></div>
+
     <section id="contact">
       <div class="row">
         <div class="col-md-6">
@@ -439,3 +447,7 @@
     
   </body>
 </html>
+
+
+
+
