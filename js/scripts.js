@@ -29,10 +29,11 @@ class Cart {
         <h3>${this.product.name}</h3>
         <h4>${this.product.size.name}</h4>
         <h4>${this.product.crust.name}</h4>
-        <h4>Your toppings are,${this.product.toppings
+        <h4>Your toppings are: ${this.product.toppings
           .map((topping) => topping.name)
           .join(", ")}</h4>
         </div>
+        <button onCheckout="onCheckout(event)"  class="checkout">check out</button>
     
       </div>
       `;
@@ -40,7 +41,36 @@ class Cart {
         return `Please select a product`;
       }
     }
+}
+  
+class Delivery{
+  updateGrandTotal() {
+    if()
+    this.grandTotal = this.total + 200;
   }
+  deliver(){
+  let deliveryDiv = document.querySelector("#delivery");
+    deliveryDiv.innerHTML = this.render();
+  }
+  render() {
+    try
+    {
+      return `<form>
+      <input type="text" id="name" placeholder="name"><br>
+      <input type="text" id="location" placeholder="location/address"><br>
+      <input type="email" id="email" placeholder="email"><br>
+      <input type="number" id="m-number" placeholder="mobile number"><br>
+      <p>Delivery price is sh 200<p>
+      <input onchange"onDeliverySelect(event)" type="checkbox" id="yes" placeholder="yes"><br>
+      <input onchange"onDeliverySelect(event)" type="checkbox" id="no" placeholder="no"><br>
+      <button class="checkout">Finish<button>
+      </form>`;
+    } finally
+    {
+      alert('Please pay ${this.grandTotal} Your order will be ready in 30 minutes. Bon appetit!')
+    }
+  }
+}
 
   //product model
   class Product {
@@ -123,6 +153,7 @@ class Topping {
   }
   //main app
 const myCart = new Cart();
+const deliveryForm = new Delivery();
   //event handler
   const onTypeSelect = (event) => {
     updateName(event.target.value);
@@ -155,6 +186,19 @@ const myCart = new Cart();
     onSubmitOrder();
   };
 
+const onCheckout = (event) => {
+  event.preventDefault();
+  onCheckoutCart();
+  }
+
+const onDeliverySelect = (event) => {
+  if (event.srcElement.checked)
+  {
+    let grandTotal=total
+  }
+  
+}
+  
   //controller
   const pizza = new Product();
 myCart.product = pizza;
@@ -192,5 +236,9 @@ const updateCrust = (crustName, crustPrice) => {
 const onSubmitOrder = () => {
   console.log(myCart);
 };
+
+const onCheckoutCart = () => {
+  console.log(deliveryForm);
+}
 
   
